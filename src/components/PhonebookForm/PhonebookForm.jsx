@@ -14,7 +14,7 @@ let schema = yup.object().shape({
   number: yup.string().min(4).required(),
 });
 
-const PhonebookForm = ({ onSubmit }) => {
+export default function PhonebookForm({ onSubmit }) {
   const handleSubmit = (values, { resetForm }) => {
     onSubmit({
       id: nanoid(),
@@ -57,6 +57,4 @@ const PhonebookForm = ({ onSubmit }) => {
       </FormContainer>
     </Formik>
   );
-};
-
-export default PhonebookForm;
+}

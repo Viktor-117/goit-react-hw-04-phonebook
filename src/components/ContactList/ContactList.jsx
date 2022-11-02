@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { List } from './ContactList.styled';
 import { ListItem } from 'components/ListItem/ListItem';
 
-const ContactList = ({ contacts, onDelete }) => {
+export default function ContactList({ contacts, onDelete }) {
   return (
     <List>
       {contacts.map(({ id, name, number }) => {
@@ -18,9 +18,7 @@ const ContactList = ({ contacts, onDelete }) => {
       })}
     </List>
   );
-};
-
-export default ContactList;
+}
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(PropTypes.shape),

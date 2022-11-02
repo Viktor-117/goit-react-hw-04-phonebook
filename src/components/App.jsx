@@ -6,6 +6,8 @@ import Filter from 'components/Filter';
 import { Container, Title } from './App.styled';
 
 export function App() {
+  const initialRender = useRef(true);
+
   const [contacts, setContacts] = useState([
     { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
     { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
@@ -17,8 +19,9 @@ export function App() {
   useEffect(() => {
     const localStorageContacts = JSON.parse(localStorage.getItem('contacts'));
 
-    if (localStorageContacts) {
+    if (initialRender.current && localStorageContacts) {
       setContacts(localStorageContacts);
+      initialRender.current = false;
     }
   }, []);
 
